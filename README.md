@@ -46,6 +46,8 @@ public static void main(String[] args) {
     }
   }
 }
+<img width="1072" height="492" alt="스크린샷 2026-09-08 230309" src="https://github.com/user-attachments/assets/f0bf4942-b24f-4ac2-8ca9-3353c301b1e2" />
+
 
 ```
 
