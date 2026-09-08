@@ -1,7 +1,5 @@
 # OOP2026
-
 ### Homework1
-
 ```Java
 public class Homework1{
     public static void main(String []args){
