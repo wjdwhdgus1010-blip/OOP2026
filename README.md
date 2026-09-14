@@ -47,7 +47,7 @@ public static void main(String[] args) {
   }
 }
 
-<img width="1178" height="1054" alt="result" src="https://github.com/user-attachments/assets/1e040e72-c98e-4918-8284-fe38d296bd77" />
+
 
 
 ### Homework2
