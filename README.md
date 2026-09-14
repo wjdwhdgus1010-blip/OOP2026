@@ -47,8 +47,6 @@ public static void main(String[] args) {
   }
 }
 
-### 과제 실행 결과
-![실행 결과](./result.png)
 
 
 
