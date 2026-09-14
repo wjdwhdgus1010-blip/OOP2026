@@ -47,7 +47,7 @@ public static void main(String[] args) {
   }
 }
 
-![실행 결과](./result.png)
+<img width="1178" height="1054" alt="result" src="https://github.com/user-attachments/assets/70d1449e-00d6-4ab7-a82e-0bdcafa37740" />
 
 ### Homework2
 
