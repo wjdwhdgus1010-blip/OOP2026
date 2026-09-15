@@ -68,4 +68,21 @@ public static void main(String[] args) {
 	}
 }
 
-<img width="879" height="282" alt="homework2" src="https://github.com/user-attachments/assets/4afe98e8-9c89-4ec8-8df3-8ec1db3fbd1c" />
+
+
+### Homework3
+public static void main(String[] agrs) {
+		long a = 1;
+		long b = 2;
+		for (int i = 1; i <= 20; i++) {
+			double ratio = (double) b / a;
+			System.out.printf("%d/%d=%.2f%n",b, a, ratio);
+			
+			long temp = a + b;
+			a = b;
+			b = temp;
+		}
+	}
+
+}
+
