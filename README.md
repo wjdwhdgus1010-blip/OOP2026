@@ -46,12 +46,14 @@ public static void main(String[] args) {
     }
   }
 }
-
+```
+<img width="621" height="355" alt="homework1" src="https://github.com/user-attachments/assets/34df3a55-b43e-4e17-af36-1af0bde63cab" />
 
 
 
 
 ### Homework2
+```java
 public static void main(String[] args) {
 		int n = 20;
 		int[] fib = new int[n];
@@ -67,10 +69,13 @@ public static void main(String[] args) {
 		}
 	}
 }
+```
+<img width="879" height="282" alt="homework2" src="https://github.com/user-attachments/assets/4ad0f87b-b977-4f78-8ea2-5107f23ba217" />
 
 
 
 ### Homework3
+```java
 public static void main(String[] agrs) {
 		long a = 1;
 		long b = 2;
@@ -85,4 +90,5 @@ public static void main(String[] agrs) {
 	}
 
 }
-
+```
+<img width="662" height="395" alt="image" src="https://github.com/user-attachments/assets/02f67f4f-8025-4e95-9d01-610d91000189" />
