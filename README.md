@@ -92,3 +92,20 @@ public static void main(String[] agrs) {
 }
 ```
 <img width="662" height="395" alt="image" src="https://github.com/user-attachments/assets/02f67f4f-8025-4e95-9d01-610d91000189" />
+
+### Homework4
+```java
+public class Homework4 {
+    public static void main(String[] args) {
+        for (int i = 1; i <= 9; i++) {
+            for (int j = 1; j <= 9; j++) {
+                System.out.printf("%d*%d=%-2d  ", j, i, (j * i));
+            }
+            System.out.println();
+        }
+    }
+}
+```
+<img width="1282" height="420" alt="스크린샷 2026-09-28 004005" src="https://github.com/user-attachments/assets/e85deafc-f81d-409e-9804-11c682af02ab" />
+
+
