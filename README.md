@@ -108,6 +108,33 @@ public class Homework4 {
 ```
 <img width="1282" height="420" alt="스크린샷 2026-09-28 004005" src="https://github.com/user-attachments/assets/e85deafc-f81d-409e-9804-11c682af02ab" />
 
+### Homework5
+```java
+public class Homework5 {
+    public static void main(String[] args) {
+        
+        double pi1 = 0.0;
+        int sign = 1;
+        for (int k = 0; k < 1000000; k++) {
+            pi1 += sign * (4.0 / (2 * k + 1));
+            sign *= -1; 
+        }
+        System.out.println("Gregory–Leibniz series: " + pi1);
+
+        
+        double sum = 0.0;
+        for (int k = 0; k < 10; k++) {
+            double term = Math.pow(-1.0 / 3.0, k) / (2 * k + 1);
+            sum += term;
+        }
+        double pi2 = Math.sqrt(12) * sum;
+        System.out.println("Madhava series: " + pi2);
+    }
+}
+```
+<img width="890" height="266" alt="image" src="https://github.com/user-attachments/assets/5dafee22-0f50-4a9f-a534-6afba01fb6cb" />
+
+
 
 ### Homework6
 ```java
