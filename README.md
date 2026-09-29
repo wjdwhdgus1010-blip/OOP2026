@@ -166,7 +166,33 @@ public class Homework6 {
 ```
 <img width="424" height="206" alt="스크린샷 2026-09-28 142458" src="https://github.com/user-attachments/assets/626f7db7-3424-4c75-ae1a-9b60228332fa" />
 
+### Homework7
+```java
 
-
-
+public class Homework7 {
+	public static void main(String[] args) {
+		int data[] = new int[20];
+		
+		for (int i =0; i < 20; i++) {
+			data[i] = (int) (Math.random() *100);
+		}
+		
+		for (int i =0; i <19; i++) {
+			for (int j = i + 1; j < 20; j++) {
+				if (data[i] > data[j]) {
+					int temp = data[i];
+					data[i] = data[j];
+					data[j] = temp;
+				}
+			}
+		}
+		
+		for (int i =0; i < 20; i++) {
+			System.out.println(data[i]);
+		}
+		
+	}
+}
+```
+<img width="648" height="375" alt="스크린샷 2026-09-29 155312" src="https://github.com/user-attachments/assets/9eda753f-73eb-4711-8a3d-ff5975cf025a" />
 
