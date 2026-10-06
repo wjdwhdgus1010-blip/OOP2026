@@ -196,3 +196,31 @@ public class Homework7 {
 ```
 <img width="648" height="375" alt="스크린샷 2026-09-29 155312" src="https://github.com/user-attachments/assets/9eda753f-73eb-4711-8a3d-ff5975cf025a" />
 
+### Homework8
+```java
+
+
+public class Homework8 {
+	public static void main(String[] args) {
+		int[][] score = new int[30][4];
+		
+		for (int i =0; i < score.length; i++) {
+			int sum = 0;
+			
+			String result = (i + 1) + " ";
+			
+			for (int j = 0; j < score[i].length; j++) {
+				score[i][j] = (int) (Math.random() * 101);
+				sum += score[i][j];
+				result += score[i][j] + " ";	
+			}
+			
+			result += sum;
+			System.out.println(result);
+		}
+	}
+
+}
+```
+<img width="454" height="464" alt="image" src="https://github.com/user-attachments/assets/24eee451-d7b4-481c-a4cb-0146438ef5ac" />
+
