@@ -224,76 +224,47 @@ public class Homework8 {
 ```
 <img width="454" height="464" alt="image" src="https://github.com/user-attachments/assets/24eee451-d7b4-481c-a4cb-0146438ef5ac" />
 
-### Homework11
+### Homework10
 ```java
-
-public class Homework11 {
+public class Homework10 {
     public static void main(String[] args) {
-        java.util.Scanner scanner = new java.util.Scanner(System.in);
-
-        System.out.print("배열의 크기(원소 개수)를 입력하세요: ");
-        int array_count = scanner.nextInt();
-
-        if (array_count <= 0) {
-            System.out.println("오류: 배열 크기는 1 이상의 정수여야 합니다.");
-            scanner.close();
-            return;
-        }
+        int array_count, max_value, bin_size, display_scale, hist_size;
+        
+        array_count = 100;
+        max_value = 100;
+        bin_size = 10;
+        display_scale = 1;
+        
+        hist_size = max_value/bin_size;
 
         int[] arr = new int[array_count];
-
-        for (int i = 0; i < array_count; i++) {
-            arr[i] = (int) (Math.random() * 100) + 1;
+        int[] hist = new int[hist_size];
+        for (int i=0; i<array_count; i++) {
+            arr[i] = (int) (Math.random()*max_value);
         }
-
-        System.out.print("생성된 배열: ");
-        for (int i = 0; i < array_count; i++) {
+        for (int i=0; i<array_count; i++) {
             System.out.print(arr[i] + " ");
         }
-        System.out.println("\n----------------------------------------");
+        System.out.println();
 
-        double sum = 0;
-        for (int i = 0; i < array_count; i++) {
-            sum += arr[i];
+        for (int i=0; i<array_count; i++) {
+            hist[arr[i]/bin_size]++;
         }
-        double arithmeticMean = sum / array_count;
-        System.out.printf("산술평균 (Arithmetic Mean) : %.4f\n", arithmeticMean);
-
-        double logSum = 0;
-        for (int i = 0; i < array_count; i++) {
-            logSum += Math.log(arr[i]);
-        }
-        double geometricMean = Math.exp(logSum / array_count);
-        System.out.printf("기하평균 (Geometric Mean)  : %.4f\n", geometricMean);
-
-        double harmonicSum = 0;
-        for (int i = 0; i < array_count; i++) {
-            harmonicSum += 1.0 / arr[i];
-        }
-        double harmonicMean = array_count / harmonicSum;
-        System.out.printf("조화평균 (Harmonic Mean)   : %.4f\n", harmonicMean);
-
-        java.util.Arrays.sort(arr); // 정렬 수행[cite: 1]
-
-        double median;
-        if (array_count % 2 == 1) {
-            median = arr[array_count / 2];
-        } else {
-            median = (arr[(array_count / 2) - 1] + arr[array_count / 2]) / 2.0;
-        }
-        System.out.printf("중앙값   (Median)          : %.4f\n", median);
-
-        scanner.close();
-
-        System.out.println("\n----------------------------------------");
-        System.out.print("정렬된 배열: ");
-        for (int val : arr) {
-            System.out.print(val + " ");
+        for (int i=0; i<hist_size; i++) {
+            System.out.print(hist[i] + " ");
         }
         System.out.println();
+
+        for (int i=0; i<hist_size; i++) {
+            System.out.print((i * bin_size) + "~" + (i * bin_size + bin_size - 1) + "\t");
+            for (int j=0; j<hist[i]/display_scale; j++) {
+                System.out.print("#");
+            }
+            System.out.println();
+        }
     }
 }
 ```
-<img width="2104" height="768" alt="image" src="https://github.com/user-attachments/assets/5a047d19-0c97-4c1b-9d00-cdd50cc06fa3" />
+<img width="2806" height="674" alt="image" src="https://github.com/user-attachments/assets/ed817bcb-daf8-444d-91bc-1ad943f609ff" />
 
 
