@@ -267,7 +267,7 @@ public class Homework10 {
 ```
 <img width="2806" height="674" alt="image" src="https://github.com/user-attachments/assets/ed817bcb-daf8-444d-91bc-1ad943f609ff" />
 
-###Homework11
+### Homework11
 ```java
 public class Homework11 {
     public static void main(String[] args) {
