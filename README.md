@@ -338,3 +338,205 @@ public class Homework11 {
 ```
 <img width="2342" height="778" alt="image" src="https://github.com/user-attachments/assets/76b219ee-ee69-45ca-a8a3-17e00280f82a" />
 
+### Homework13
+```java
+public class Homework13 {
+    public static void main(String[] args) {
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
+        
+        while (true) {
+            System.out.print("수식을 입력하세요 (종료: q 또는 exit): ");
+            String inputString = scanner.nextLine();
+            
+            if (inputString.equalsIgnoreCase("q") || inputString.equalsIgnoreCase("exit")) {
+                System.out.println("프로그램을 종료합니다.");
+                break;
+            }
+            
+            String[] arrOfStr = inputString.trim().split("\\s+");
+            
+            if (arrOfStr.length < 3 || arrOfStr.length % 2 == 0) {
+                System.out.println("잘못된 입력 형식입니다. (예: 2 + 3 또는 2 + 4 - 5)");
+                continue;
+            }
+            
+            try {
+                double result = Double.parseDouble(arrOfStr[0]);
+                boolean valid = true;
+                
+                for (int i = 1; i < arrOfStr.length; i += 2) {
+                    String op = arrOfStr[i];
+                    double nextNum = Double.parseDouble(arrOfStr[i + 1]);
+                    
+                    switch (op) {
+                        case "+":
+                            result += nextNum;
+                            break;
+                        case "-":
+                            result -= nextNum;
+                            break;
+                        case "#": 
+                            result *= nextNum;
+                            break;
+                        case "/":
+                            if (nextNum == 0) {
+                                System.out.println("0으로 나눌 수 없습니다.");
+                                valid = false;
+                            } else {
+                                result /= nextNum;
+                            }
+                            break;
+                        default:
+                            System.out.println("지원하지 않는 연산자입니다: " + op);
+                            valid = false;
+                            break;
+                    }
+                    
+                    if (!valid) break;
+                }
+                
+                if (valid) {
+                    if (result == (long) result) {
+                        System.out.println("결과: " + (long) result);
+                    } else {
+                        System.out.println("결과: " + result);
+                    }
+                }
+                
+            } catch (NumberFormatException e) {
+                System.out.println("숫자 입력이 올바르지 않습니다. 다시 입력해주세요.");
+            }
+            
+            System.out.println(); 
+        }
+        
+        scanner.close();
+    }
+}
+```
+<img width="1270" height="626" alt="image" src="https://github.com/user-attachments/assets/ef81ce80-1e11-4693-8250-d5af09b9ecc0" />
+
+### Homework14
+```
+public class Homework14 {
+
+    static class Numbers {
+        int num[];
+
+        Numbers(int num[]) {
+            this.num = num;
+        }
+
+        double getTotal() {
+            double sum = 0;
+            for (int i = 0; i < num.length; i++) {
+                sum += num[i];
+            }
+            return sum;
+        }
+
+        double getArithmaticMean() {
+            return getTotal() / num.length;
+        }
+
+        double getHarmonicMean() {
+            double sumReciprocal = 0;
+            for (int i = 0; i < num.length; i++) {
+                if (num[i] == 0) continue;
+                sumReciprocal += 1.0 / num[i];
+            }
+            return sumReciprocal == 0 ? 0 : num.length / sumReciprocal;
+        }
+
+        double getGeometricMean() {
+            double sumLog = 0;
+            for (int i = 0; i < num.length; i++) {
+                if (num[i] <= 0) continue;
+                sumLog += Math.log(num[i]);
+            }
+            return Math.exp(sumLog / num.length);
+        }
+
+        void sorting() {
+            for (int i = 0; i < num.length - 1; i++) {
+                for (int j = 0; j < num.length - 1 - i; j++) {
+                    if (num[j] > num[j + 1]) {
+                        int temp = num[j];
+                        num[j] = num[j + 1];
+                        num[j + 1] = temp;
+                    }
+                }
+            }
+        }
+
+        int getMedian() {
+            sorting();
+            int mid = num.length / 2;
+            if (num.length % 2 == 1) {
+                return num[mid];
+            } else {
+                return (num[mid - 1] + num[mid]) / 2;
+            }
+        }
+
+        void drawHistogram(int start, int end, int binCount, int scale) {
+            int binSize = (end - start) / binCount;
+            int[] counts = new int[binCount];
+
+            for (int value : num) {
+                if (value >= start && value < end) {
+                    int index = (value - start) / binSize;
+                    if (index >= binCount) index = binCount - 1;
+                    counts[index]++;
+                }
+            }
+
+            System.out.println("\n===== 도수분포표 및 히스토그램 =====");
+            for (int i = 0; i < binCount; i++) {
+                int binStart = start + i * binSize;
+                int binEnd = binStart + binSize;
+                System.out.printf("[%2d ~ %2d) (%3d개) : ", binStart, binEnd, counts[i]);
+
+                int starCount = scale > 0 ? counts[i] / scale : counts[i];
+                for (int j = 0; j < starCount; j++) {
+                    System.out.print("*");
+                }
+                System.out.println();
+            }
+        }
+
+        void display() {
+            System.out.printf("배열 크기: %3d\n[ ", num.length);
+            for (int i = 0; i < num.length; i++) {
+                System.out.printf("%3d ", num[i]);
+                if ((i + 1) % 10 == 0 && i != num.length - 1) {
+                    System.out.print("\n  ");
+                }
+            }
+            System.out.println("]");
+        }
+    }
+
+    public static void main(String[] args) {
+        int size = 100;
+        int data[] = new int[size];
+        
+        for (int i = 0; i < size; i++) {
+            data[i] = (int) (Math.random() * 100) + 1;
+        }
+
+        Numbers obj = new Numbers(data);
+        obj.display();
+
+        System.out.println("\n===== 통계 결과 =====");
+        System.out.printf("Arithmetic Mean : %5.2f\n", obj.getArithmaticMean());
+        System.out.printf("Geometric Mean  : %5.2f\n", obj.getGeometricMean());
+        System.out.printf("Harmonic Mean   : %5.2f\n", obj.getHarmonicMean());
+        System.out.printf("Median          : %d\n", obj.getMedian());
+
+        obj.drawHistogram(0, 100, 10, 1);
+    }
+}
+```
+<img width="1258" height="1116" alt="image" src="https://github.com/user-attachments/assets/b827dd39-f49e-4c0f-a698-a5f6572c68a6" />
+
